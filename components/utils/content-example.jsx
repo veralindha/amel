@@ -2,6 +2,7 @@ import Activity from "./activity/activity";
 import ContentBody from "./content-body";
 import ContentHeader from "./content-header";
 import Profile from "./profil.jsx/profile";
+import TableGuru from "./table_guru/table";
 
 const breadcrumbs = [
   {
@@ -23,6 +24,7 @@ export default function Content() {
       <ContentBody />
       <Activity/>
       <Profile/>
+      <TableGuru/>
     </div>
   )
 }

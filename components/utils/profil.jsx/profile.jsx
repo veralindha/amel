@@ -22,12 +22,16 @@ export default function Profile() {
                             </select>
                         </div>
                         <div className="form-group">
+                            <label htmlFor="inputDescription">Nama DUDI PKL</label>
+                            <textarea id="inputDescription" className="form-control" rows={4} defaultValue={"PT SEMBARANG"} />
+                        </div>
+                        <div className="form-group">
                             <label htmlFor="inputDescription">Deskripsi Bidang PKL</label>
-                            <textarea id="inputDescription" className="form-control" rows={4} defaultValue={"Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr."} />
+                            <textarea id="inputDescription" className="form-control" rows={4} defaultValue={"Jaringan Lapangan"} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="inputDescription">Alamat</label>
-                            <textarea id="inputDescription" className="form-control" rows={4} defaultValue={"Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr."} />
+                            <textarea id="inputDescription" className="form-control" rows={4} defaultValue={"RT 01"} />
                         </div>
                         <div className="form-group">
                             <label htmlFor="inputClientCompany">Tanggal lahir</label>
