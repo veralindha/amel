@@ -9,7 +9,11 @@ export default function Profile() {
                             <input type="text" id="inputName" className="form-control" defaultValue="AdminLTE" />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="inputStatus">Status</label>
+                            <label htmlFor="inputName">Name</label>
+                            <input type="text" id="inputName" className="form-control" defaultValue="AdminLTE" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="inputStatus">Jurusan</label>
                             <select id="inputStatus" className="form-control custom-select">
                                 <option disabled>Select one</option>
                                 <option>On Hold</option>
@@ -18,16 +22,28 @@ export default function Profile() {
                             </select>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="inputDescription">Project Description</label>
+                            <label htmlFor="inputDescription">Deskripsi Bidang PKL</label>
                             <textarea id="inputDescription" className="form-control" rows={4} defaultValue={"Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr."} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="inputClientCompany">Client Company</label>
-                            <input type="text" id="inputClientCompany" className="form-control" defaultValue="Deveint Inc" />
+                            <label htmlFor="inputDescription">Alamat</label>
+                            <textarea id="inputDescription" className="form-control" rows={4} defaultValue={"Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr."} />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="inputProjectLeader">Project Leader</label>
+                            <label htmlFor="inputClientCompany">Tanggal lahir</label>
+                            <input type="date" id="inputClientCompany" className="form-control" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="inputProjectLeader">Nomer Telepon</label>
+                            <input type="number" id="inputProjectLeader" className="form-control" defaultValue="Tony Chicken" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="inputProjectLeader">Nama Orang Tua</label>
                             <input type="text" id="inputProjectLeader" className="form-control" defaultValue="Tony Chicken" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="inputProjectLeader">Nomer Telepon Orang Tua</label>
+                            <input type="number" id="inputProjectLeader" className="form-control" defaultValue="Tony Chicken" />
                         </div>
                     </div>
                     {/* /.card-body */}
