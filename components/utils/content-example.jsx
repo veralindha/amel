@@ -1,5 +1,7 @@
+import Activity from "./activity/activity";
 import ContentBody from "./content-body";
 import ContentHeader from "./content-header";
+import Profile from "./profil.jsx/profile";
 
 const breadcrumbs = [
   {
@@ -19,6 +21,8 @@ export default function Content() {
     <div className='content-wrapper'>
       <ContentHeader title={'Dashboard'} listBreadcrumb={breadcrumbs}/>
       <ContentBody />
+      <Activity/>
+      <Profile/>
     </div>
   )
 }
