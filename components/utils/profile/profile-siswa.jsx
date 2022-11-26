@@ -1,4 +1,4 @@
-export default function Profile() {
+export default function ProfileSiswa() {
     return (
         <div className="content">
             <div className="container-fluid">
@@ -9,8 +9,8 @@ export default function Profile() {
                             <input type="text" id="inputName" className="form-control" defaultValue="AdminLTE" />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="inputName">Name</label>
-                            <input type="text" id="inputName" className="form-control" defaultValue="AdminLTE" />
+                            <label htmlFor="inputName">NISN</label>
+                            <input type="number" id="inputName" className="form-control" defaultValue="AdminLTE" />
                         </div>
                         <div className="form-group">
                             <label htmlFor="inputStatus">Jurusan</label>

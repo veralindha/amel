@@ -1,8 +1,10 @@
-import Activity from "./activity/activity";
+import Activity from "./activity_siswa/activity";
 import ContentBody from "./content-body";
 import ContentHeader from "./content-header";
-import Profile from "./profil.jsx/profile";
-import TableGuru from "./table_guru/table";
+import ProfileSiswa from "./profile/profile-siswa";
+import ProfileGuru from "./profile/profile-guru";
+import TableGuru from "./table/table_guru";
+import TableUsers from "./table/table_users";
 
 const breadcrumbs = [
   {
@@ -23,7 +25,9 @@ export default function Content() {
       <ContentHeader title={'Dashboard'} listBreadcrumb={breadcrumbs}/>
       <ContentBody />
       <Activity/>
-      <Profile/>
+      <ProfileGuru/>
+      <ProfileSiswa/>
+      <TableUsers/>
       <TableGuru/>
     </div>
   )
