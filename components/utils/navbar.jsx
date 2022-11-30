@@ -7,16 +7,16 @@ export default function Navbar() {
         <li className="nav-item">
           <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></a>
         </li>
-        <li className="nav-item d-none d-sm-inline-block">
+        {/* <li className="nav-item d-none d-sm-inline-block">
           <a href="index3.html" className="nav-link">Home</a>
         </li>
         <li className="nav-item d-none d-sm-inline-block">
           <a href="#" className="nav-link">Contact</a>
-        </li>
+        </li> */}
       </ul>
 
       <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a className="nav-link" data-widget="navbar-search" href="#" role="button">
             <i className="fas fa-search" />
           </a>
@@ -35,8 +35,8 @@ export default function Navbar() {
               </div>
             </form>
           </div>
-        </li>
-        <li className="nav-item dropdown">
+        </li> */}
+        {/* <li className="nav-item dropdown">
           <a className="nav-link" data-toggle="dropdown" href="#">
             <i className="far fa-comments" />
             <span className="badge badge-danger navbar-badge">3</span>
@@ -71,7 +71,6 @@ export default function Navbar() {
             </a>
             <div className="dropdown-divider" />
             <a href="#" className="dropdown-item">
-              {/* Message Start */}
               <div className="media">
                 <Image src="/dist/img/user3-128x128.jpg" alt="User Avatar" className="img-size-50 img-circle mr-3" width={128} height={128}/>
                 <div className="media-body">
@@ -87,8 +86,8 @@ export default function Navbar() {
             <div className="dropdown-divider" />
             <a href="#" className="dropdown-item dropdown-footer">See All Messages</a>
           </div>
-        </li>
-        <li className="nav-item dropdown">
+        </li> */}
+        {/* <li className="nav-item dropdown">
           <a className="nav-link" data-toggle="dropdown" href="#">
             <i className="far fa-bell" />
             <span className="badge badge-warning navbar-badge">15</span>
@@ -113,17 +112,17 @@ export default function Navbar() {
             <div className="dropdown-divider" />
             <a href="#" className="dropdown-item dropdown-footer">See All Notifications</a>
           </div>
-        </li>
+        </li> */}
         <li className="nav-item">
           <a className="nav-link" data-widget="fullscreen" href="#" role="button">
             <i className="fas fa-expand-arrows-alt" />
           </a>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a className="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
             <i className="fas fa-th-large" />
           </a>
-        </li>
+        </li> */}
       </ul>
     </nav>
 

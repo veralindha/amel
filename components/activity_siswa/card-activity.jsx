@@ -15,7 +15,7 @@ export default function CardActivity() {
                     </div>
                     <div className="timeline-footer">
                         <a className="btn btn-success btn-sm">Edit</a>
-                        <a className="btn btn-danger btn-sm">Delete</a>
+                        <a className="btn btn-danger btn-sm ml-2">Delete</a>
                     </div>
                 </div>
             </div>

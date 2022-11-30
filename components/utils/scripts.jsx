@@ -5,7 +5,7 @@ export default function Scripts() {
     <>
       <Script defer src="/dist/js/jquery.min.js"></Script>
       {/* <!-- jQuery UI 1.11.4 --> */}
-      <Script defer src="/dist/js/jquery-ui.min.js"></Script>
+      {/* <Script defer src="/dist/js/jquery-ui.min.js"></Script> */}
       {/* <!-- Bootstrap 4 --> */}
       <Script defer src="/dist/js/bootstrap.bundle.js"></Script>
       {/* <!-- AdminLTE App --> */}
