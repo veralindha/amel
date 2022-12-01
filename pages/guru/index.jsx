@@ -17,7 +17,7 @@ export default function DataGuru(){
   ]
 
   return (
-    <Layout title="Data Guru - Montoring PKL" activeNavBarItem={1} activeUser={'Admin'}>
+    <Layout title="Data Guru - Montoring PKL" activeNavBarItem={2} activeUser={'Admin'}>
       <ContentHeader title={'Data Guru'} listBreadcrumb={breadcrumbs} />
       <TableGuru />
     </Layout>

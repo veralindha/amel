@@ -5,7 +5,7 @@ export default function TambahDataGuruForm() {
   const handleSubmitSiswa = () => { }
   const handleSubmitGuru = () => { }
   return (
-    <Card cardIcon="fa-user">
+    <Card cardTitle="Guru" cardIcon="fa-user">
       <div className="container-fluid">
         <div className="form-group">
           <div className="row">

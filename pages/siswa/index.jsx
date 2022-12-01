@@ -16,7 +16,7 @@ export default function DataSiswa(){
     },
   ]
   return (
-    <Layout title="Data Siswa - Monitoring PKL" activeNavBarItem={3} activeUser={'Admin'}>
+    <Layout title="Data Siswa - Monitoring PKL" activeNavBarItem={4} activeUser={'Admin'}>
       <ContentHeader title={'Data Siswa'} listBreadcrumb={breadcrumbs} />
       <TableSiswa />
     </Layout>

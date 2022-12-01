@@ -7,7 +7,7 @@ import Card from "../utils/card"
 
 export default function TambahDataContents() {
   const [tipe, setTipe] = useState('')
-  let form;
+  let form = <TambahDataSiswaForm/>;
   const breadcrumbs = [
     {
       isActive: false,
@@ -24,7 +24,7 @@ export default function TambahDataContents() {
     form = <TambahDataSiswaForm />
   } else if (tipe == 'guru') {
     form = <TambahDataGuruForm />
-  } else {
+  } else if (tipe == 'dudi'){
     form = <TambahDataDudiForm />
   }
   return (

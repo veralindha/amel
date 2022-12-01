@@ -5,7 +5,7 @@ export default function TambahDataDudiForm() {
   const handleSubmitDudi = () => { }
 
   return (
-    <Card cardIcon="fa-user">
+    <Card cardTitle="DUDI" cardIcon="fa-user">
       <div className="container-fluid">
         <div className="form-group">
           <div className="row">

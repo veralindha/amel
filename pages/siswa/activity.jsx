@@ -16,7 +16,7 @@ export default function ActivitySiswa(){
     },
   ]
   return (
-    <Layout title="Activity Siswa - Monitoring PKL" activeNavBarItem={4} activeUser={'Admin'}>
+    <Layout title="Activity Siswa - Monitoring PKL" activeNavBarItem={5} activeUser={'Admin'}>
       <ContentHeader title={'Aktivitas Siswa'} listBreadcrumb={breadcrumbs} />
       <Activity />
     </Layout>

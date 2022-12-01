@@ -16,7 +16,7 @@ export default function ActivityGuru(){
     },
   ]
   return (
-    <Layout title="Activity Guru - Monitoring PKL" activeNavBarItem={2} activeUser={'Admin'}>
+    <Layout title="Activity Guru - Monitoring PKL" activeNavBarItem={3} activeUser={'Admin'}>
       <ContentHeader title={'Aktivitas Guru'} listBreadcrumb={breadcrumbs} />
       <Activity />
     </Layout>

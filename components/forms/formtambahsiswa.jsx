@@ -5,7 +5,7 @@ export default function TambahDataSiswaForm() {
   const handleSubmitSiswa = () => { }
   
   return (
-    <Card cardIcon="fa-user">
+    <Card cardTitle="Siswa" cardIcon="fa-user">
       <div className="container-fluid">
         <div className="form-group">
           <div className="row">
