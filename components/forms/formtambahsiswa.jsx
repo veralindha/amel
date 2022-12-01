@@ -5,7 +5,7 @@ export default function TambahDataSiswaForm() {
   const handleSubmitSiswa = () => { }
   
   return (
-    <Card>
+    <Card cardIcon="fa-user">
       <div className="container-fluid">
         <div className="form-group">
           <div className="row">
@@ -47,10 +47,15 @@ export default function TambahDataSiswaForm() {
                 <input type="date" className="form-control form-control-sm text-left" id="tgl" value={'tanggalLahir'} onChange={(e) => setTanggalLahir(e.target.value)} />
               </div>
             </div>
-            
             <div className="col-md-4">
               <div>
                 <label for="telp">Nomer Telepon</label>
+                <input type="tel" className="form-control form-control-sm" name="telp" id="telp" value={'notelp'} onChange={(e) => setNotelp(e.target.value)} />
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div>
+                <label for="telp">Nomer Telepon Orang Tua</label>
                 <input type="tel" className="form-control form-control-sm" name="telp" id="telp" value={'notelp'} onChange={(e) => setNotelp(e.target.value)} />
               </div>
             </div>
@@ -58,20 +63,10 @@ export default function TambahDataSiswaForm() {
         </div>
         <div className="form-group">
           <div className="row">
-            <div className="col-md-8">
+            <div className="col-md-12">
               <div>
-                <label htmlFor="alamat">Alamat</label>
+                <label htmlFor="alamat">Nama Orang Tua</label>
                 <input type="textarea" className="form-control form-control-sm text-left" id="alamat" value={'alamat'} onChange={(e) => setAlamat(e.target.value)} />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="form-group">
-          <div className="row">
-            <div className="col-md-8">
-              <div>
-                <label htmlFor="asal">Asal Sekolah</label>
-                <input type="textarea" className="form-control form-control-sm text-left" id="asal" value={'asalSekolah'} onChange={(e) => setAsalSekolah(e.target.value)} />
               </div>
             </div>
           </div>
