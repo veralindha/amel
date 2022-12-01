@@ -32,9 +32,17 @@ export default function Sidebar({isActiveNavItem=0, activeUser=''}) {
                 </p>
               </Link>
             </li>
+            <li className="nav-item">
+              <Link href="/admin/tambahdata" className={`nav-link ${isActiveNavItem == 1 ? ' active':''}`}>
+                <i className="nav-icon fas fa-th" />
+                <p>
+                  Tambah Data
+                </p>
+              </Link>
+            </li>
             <li className="nav-header">GURU</li>
             <li className="nav-item">
-              <Link href="/guru" className={`nav-link ${isActiveNavItem == 1 ? ' active':''}`}>
+              <Link href="/guru" className={`nav-link ${isActiveNavItem == 2 ? ' active':''}`}>
                 <i className="nav-icon fas fa-th" />
                 <p>
                   Data Guru
@@ -42,7 +50,7 @@ export default function Sidebar({isActiveNavItem=0, activeUser=''}) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/guru/activity" className={`nav-link ${isActiveNavItem == 2 ? ' active':''}`}>
+              <Link href="/guru/activity" className={`nav-link ${isActiveNavItem == 3 ? ' active':''}`}>
                 <i className="nav-icon fas fa-th" />
                 <p>
                   Aktivitas Guru
@@ -51,7 +59,7 @@ export default function Sidebar({isActiveNavItem=0, activeUser=''}) {
             </li>
             <li className="nav-header">SISWA</li>
             <li className="nav-item">
-              <Link href="/siswa" className={`nav-link ${isActiveNavItem == 3 ? ' active':''}`}>
+              <Link href="/siswa" className={`nav-link ${isActiveNavItem == 4 ? ' active':''}`}>
                 <i className="nav-icon fas fa-th" />
                 <p>
                   Data Siswa
@@ -59,7 +67,7 @@ export default function Sidebar({isActiveNavItem=0, activeUser=''}) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/siswa/activity" className={`nav-link ${isActiveNavItem == 4 ? ' active':''}`}>
+              <Link href="/siswa/activity" className={`nav-link ${isActiveNavItem == 5 ? ' active':''}`}>
                 <i className="nav-icon fas fa-th" />
                 <p>
                   Aktivitas Siswa
