@@ -1,4 +1,4 @@
-export default function TableGuru() {
+export default function TableDudi() {
   return (
     <div className="content">
       <div className="container-fluid">
@@ -6,7 +6,7 @@ export default function TableGuru() {
           <div className="col-12">
             <div className="card">
               <div className="card-header">
-                <h3 className="card-title">Tabel Guru</h3>
+                <h3 className="card-title">Tabel DUDI</h3>
                 <div className="card-tools">
                   <div className="input-group input-group-sm" style={{ width: 150 }}>
                     <input type="text" name="table_search" className="form-control float-right" placeholder="Search" />

@@ -74,6 +74,15 @@ export default function Sidebar({isActiveNavItem=0, activeUser=''}) {
                 </p>
               </Link>
             </li>
+            <li className="nav-header">DUDI</li>
+            <li className="nav-item">
+              <Link href="/dudi" className={`nav-link ${isActiveNavItem == 6 ? ' active':''}`}>
+                <i className="nav-icon fas fa-th" />
+                <p>
+                  Data DUDI
+                </p>
+              </Link>
+            </li>
           </ul>
         </nav>
         {/* /.sidebar-menu */}

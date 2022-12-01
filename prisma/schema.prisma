@@ -11,16 +11,16 @@ datasource db {
 }
 
 model DataSiswa {
-  nisn         Int    @id
+  nisn         Float  @id
   nama         String
   jurusan      String
   deskripsi    String
   bidang       String
   alamat       String
-  no_telp      Int
+  no_telp      Float
   ttl          String
   nama_ortu    String
-  no_telp_ortu Int
+  no_telp_ortu Float
 }
 
 model DataGuru {
@@ -38,26 +38,26 @@ model User {
 }
 
 model Dudi {
-  id      Int    @id
-  nama    String
-  dudi    String
-  alamat  String
-  no_telp Int
+  id        Int        @id
+  nama      String
+  dudi      String
+  alamat    String
+  no_telp   Int
   siswalogs LogSiswa[]
 }
 
 model LogSiswa {
-  id Int @id
-  nama String
-  kegiatan String
-  dudi Dudi @relation(fields: [dudiId], references: [id])
-  dudiId Int
+  id        Int      @id
+  nama      String
+  kegiatan  String
+  dudi      Dudi     @relation(fields: [dudiId], references: [id])
+  dudiId    Int
   createdAt DateTime
 }
 
 model LogGuru {
-  id Int @id
-  nama String
-  kegiatan String
+  id        Int      @id
+  nama      String
+  kegiatan  String
   createdAt DateTime
 }

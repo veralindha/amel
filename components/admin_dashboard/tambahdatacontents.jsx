@@ -7,7 +7,7 @@ import Card from "../utils/card"
 
 export default function TambahDataContents() {
   const [tipe, setTipe] = useState('')
-  let form = <TambahDataSiswaForm/>;
+  let form = <TambahDataSiswaForm />;
   const breadcrumbs = [
     {
       isActive: false,
@@ -24,7 +24,7 @@ export default function TambahDataContents() {
     form = <TambahDataSiswaForm />
   } else if (tipe == 'guru') {
     form = <TambahDataGuruForm />
-  } else if (tipe == 'dudi'){
+  } else if (tipe == 'dudi') {
     form = <TambahDataDudiForm />
   }
   return (
@@ -46,7 +46,7 @@ export default function TambahDataContents() {
                       <div className="row">
                         <div className="col-md-12">
                           <div>
-                            <label htmlFor="exampleInputName1">Data</label>
+                            <label htmlFor="exampleInputName1">Form Input Data</label>
                             <select className="form-control" value={tipe} onChange={(e) => setTipe(e.target.value)}>
                               <option value="siswa">Siswa</option>
                               <option value="guru">Guru</option>
