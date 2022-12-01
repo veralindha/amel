@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model DataSiswa {
+  nisn         Int    @id
+  nama         String
+  jurusan      String
+  deskripsi    String
+  bidang       String
+  alamat       String
+  no_telp      Int
+  ttl          String
+  nama_ortu    String
+  no_telp_ortu Int
+}
+
+model DataGuru {
+  nip     Int    @id
+  nama    String
+  alamat  String
+  no_telp Int
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  username String
+  password String
+  role     String
+}
+
+model Dudi {
+  id      Int    @id
+  nama    String
+  dudi    String
+  alamat  String
+  no_telp Int
+  siswalogs LogSiswa[]
+}
+
+model LogSiswa {
+  id Int @id
+  nama String
+  kegiatan String
+  dudi Dudi @relation(fields: [dudiId], references: [id])
+  dudiId Int
+  createdAt DateTime
+}
+
+model LogGuru {
+  id Int @id
+  nama String
+  kegiatan String
+  createdAt DateTime
+}
