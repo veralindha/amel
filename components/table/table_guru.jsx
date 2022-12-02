@@ -1,4 +1,22 @@
+import { useEffect, useState } from "react"
+import { supabase } from "../../libs/supabase.lib"
+
 export default function TableGuru() {
+  const [dataGuru, setDataGuru] = useState([])
+  const [search, setSearch] = useState('')
+  const searcedData = dataGuru.filter((guru) => guru.nama_guru.toLowerCase().includes(search.toLowerCase()))
+  const fetchGuru = async () => {
+    let { data, error } = await supabase.from('DataGuru').select();
+    if (error) {
+      console.error(error)
+    } else {
+      setDataGuru(data)
+    }
+  }
+
+  useEffect(() => {
+    fetchGuru()
+  })
   return (
     <div className="content">
       <div className="container-fluid">
@@ -9,7 +27,7 @@ export default function TableGuru() {
                 <h3 className="card-title">Tabel Guru</h3>
                 <div className="card-tools">
                   <div className="input-group input-group-sm" style={{ width: 150 }}>
-                    <input type="text" name="table_search" className="form-control float-right" placeholder="Search" />
+                    <input type="text" name="table_search" className="form-control float-right" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)}/>
                     <div className="input-group-append">
                       <button type="submit" className="btn btn-default">
                         <i className="fas fa-search" />
@@ -23,7 +41,7 @@ export default function TableGuru() {
                 <table className="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>ID</th>
+                      <th>No.</th>
                       <th>Nama</th>
                       <th>NIP</th>
                       <th>No Telp</th>
@@ -31,34 +49,16 @@ export default function TableGuru() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span className="tag tag-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span className="tag tag-warning">Pending</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span className="tag tag-primary">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span className="tag tag-danger">Denied</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
+                    {searcedData.map((guru, i) => (
+                      <tr key={i}>
+                        <td>{i+1}</td>
+                        <td>{guru.nama_guru}</td>
+                        <td>{guru.nip}</td>
+                        <td>{guru.no_telp}</td>
+                        <td>{guru.alamat}</td>
+                      </tr>
+                    ))}
+                    
                   </tbody>
                 </table>
               </div>

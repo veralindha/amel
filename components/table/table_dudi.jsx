@@ -1,4 +1,21 @@
+import { useEffect, useState } from "react"
+import {supabase} from "../../libs/supabase.lib"
+
 export default function TableDudi() {
+  const [dataDudi, setDataDudi] = useState([])
+  const [search, setSearch] = useState('')
+  const searchedData = dataDudi.filter((dudi) => dudi.nama_dudi.toLowerCase().includes(search.toLowerCase()))
+  const fetchDudi = async () => {
+    let {data, error} = await supabase.from('Dudi').select()
+    if (error) {
+      console.error(error)
+    } else {
+      setDataDudi(data)
+    }
+  }
+  useEffect(() => {
+    fetchDudi()
+  })
   return (
     <div className="content">
       <div className="container-fluid">
@@ -9,7 +26,7 @@ export default function TableDudi() {
                 <h3 className="card-title">Tabel DUDI</h3>
                 <div className="card-tools">
                   <div className="input-group input-group-sm" style={{ width: 150 }}>
-                    <input type="text" name="table_search" className="form-control float-right" placeholder="Search" />
+                    <input type="text" name="table_search" className="form-control float-right" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)}/>
                     <div className="input-group-append">
                       <button type="submit" className="btn btn-default">
                         <i className="fas fa-search" />
@@ -23,42 +40,21 @@ export default function TableDudi() {
                 <table className="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>ID</th>
-                      <th>Nama</th>
-                      <th>NIP</th>
+                      <th>No.</th>
+                      <th>Nama DUDI</th>
                       <th>No Telp</th>
                       <th>Alamat</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span className="tag tag-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span className="tag tag-warning">Pending</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span className="tag tag-primary">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span className="tag tag-danger">Denied</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
+                    {searchedData.map((dudi, i) => (
+                      <tr key={i}>
+                        <td>{i+1}</td>
+                        <td>{dudi.nama_dudi}</td>
+                        <td>{dudi.no_telp}</td>
+                        <td>{dudi.alamat}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
