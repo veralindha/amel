@@ -1,4 +1,8 @@
+import { useState } from "react"
+
 export default function EditActivity() {
+    const [kegiatan, setKegiatan] = useState('')
+    const handleSubmit = () => {}
     return (
         <div className="card card-primary">
             {/* /.card-header */}

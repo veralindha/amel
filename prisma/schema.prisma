@@ -24,7 +24,7 @@ model DataSiswa {
 }
 
 model DataGuru {
-  nip       Float    @id
+  nip       Float  @id
   nama_guru String
   alamat    String
   no_telp   Float
@@ -53,6 +53,7 @@ model LogSiswa {
   kegiatan  String
   dudi      Dudi     @relation(fields: [dudiId], references: [id])
   dudiId    Int
+  image     String?
   createdAt DateTime
 }
 
@@ -60,5 +61,6 @@ model LogGuru {
   id        Int      @id
   nama      String
   kegiatan  String
+  image     String?
   createdAt DateTime
 }
