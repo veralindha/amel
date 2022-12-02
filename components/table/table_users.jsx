@@ -26,7 +26,6 @@ export default function TableUsers() {
                                             <th>NIP / NISN</th>
                                             <th>Nama</th>
                                             <th>Role</th>
-                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -34,7 +33,6 @@ export default function TableUsers() {
                                             <td>183</td>
                                             <td>John Doe</td>
                                             <td>11-7-2014</td>
-                                            <td><span className="tag tag-success">Approved</span></td>
                                         </tr>
                                     </tbody>
                                 </table>

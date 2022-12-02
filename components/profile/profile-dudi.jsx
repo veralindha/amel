@@ -1,20 +1,15 @@
-export default function ProfileGuru() {
+import Card from '../../components/utils/card'
+export default function ProfileDudi() {
     return (
         <section className="content">
             <Card cardTitle="Profile" cardIcon="fa-user">
                 <div className="container-fluid">
                     <div className="form-group">
                         <div className="row">
-                            <div className="col-md-6">
+                            <div className="col-md-12">
                                 <div>
-                                    <label htmlFor="exampleInputName1">Nama Guru</label>
-                                    <input type="text" className="form-control form-control-sm text-left" id="exampleInputName1" value={'nama'} onChange={(e) => setNama(e.target.value)} required />
-                                </div>
-                            </div>
-                            <div className="col-md-6">
-                                <div>
-                                    <label htmlFor="exampleInputName2">NIP</label>
-                                    <input type="text" className="form-control form-control-sm text-left text-left" id="exampleInputName2" value={'nip'} onChange={(e) => setNip(e.target.value)} required />
+                                    <label htmlFor="exampleInputName1">Nama DUDI</label>
+                                    <input type="text" className="form-control form-control-sm text-left" id="exampleInputName1" value={'namaDudi'} onChange={(e) => setNamaDudi(e.target.value)} required />
                                 </div>
                             </div>
                         </div>
@@ -36,7 +31,7 @@ export default function ProfileGuru() {
                         </div>
                     </div>
                     <div className="row">
-                        <button className="btn btn-primary" onClick={() => handleSubmitGuru()}>Simpan</button>
+                        <button className="btn btn-primary" onClick={() => handleSubmitDudi()}>Simpan</button>
                     </div>
                 </div>
             </Card>

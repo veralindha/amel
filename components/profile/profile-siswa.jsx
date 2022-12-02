@@ -1,58 +1,87 @@
 export default function ProfileSiswa() {
     return (
-        <div className="content">
-            <div className="container-fluid">
-                <div className="card card-primary">
-                    <div className="card-body" style={{ display: 'block' }}>
-                        <div className="form-group">
-                            <label htmlFor="inputName">Name</label>
-                            <input type="text" id="inputName" className="form-control" defaultValue="AdminLTE" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="inputName">NISN</label>
-                            <input type="number" id="inputName" className="form-control" defaultValue="AdminLTE" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="inputStatus">Jurusan</label>
-                            <select id="inputStatus" className="form-control custom-select">
-                                <option disabled>Select one</option>
-                                <option>On Hold</option>
-                                <option>Canceled</option>
-                                <option selected>Success</option>
-                            </select>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="inputDescription">Nama DUDI PKL</label>
-                            <textarea id="inputDescription" className="form-control" rows={4} defaultValue={"PT SEMBARANG"} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="inputDescription">Deskripsi Bidang PKL</label>
-                            <textarea id="inputDescription" className="form-control" rows={4} defaultValue={"Jaringan Lapangan"} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="inputDescription">Alamat</label>
-                            <textarea id="inputDescription" className="form-control" rows={4} defaultValue={"RT 01"} />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="inputClientCompany">Tanggal lahir</label>
-                            <input type="date" id="inputClientCompany" className="form-control" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="inputProjectLeader">Nomer Telepon</label>
-                            <input type="number" id="inputProjectLeader" className="form-control" defaultValue="Tony Chicken" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="inputProjectLeader">Nama Orang Tua</label>
-                            <input type="text" id="inputProjectLeader" className="form-control" defaultValue="Tony Chicken" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="inputProjectLeader">Nomer Telepon Orang Tua</label>
-                            <input type="number" id="inputProjectLeader" className="form-control" defaultValue="Tony Chicken" />
+        <section className="content">
+            <Card cardTitle="Profile" cardIcon="fa-user">
+                <div className="container-fluid">
+                    <div className="form-group">
+                        <div className="row">
+                            <div className="col-md-6">
+                                <div>
+                                    <label htmlFor="exampleInputName1">Nama Siswa</label>
+                                    <input type="text" className="form-control form-control-sm text-left" id="exampleInputName1" value={'nama'} onChange={(e) => setNama(e.target.value)} required />
+                                </div>
+                            </div>
+                            <div className="col-md-6">
+                                <div>
+                                    <label htmlFor="exampleInputName2">NISN</label>
+                                    <input type="text" className="form-control form-control-sm text-left text-left" id="exampleInputName2" value={'nisn'} onChange={(e) => setNisn(e.target.value)} required />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    {/* /.card-body */}
+                    <div className="form-group">
+                        <div className="row">
+                            <div className="col-md-6">
+                                <div>
+                                    <label htmlFor="exampleInputName1">Jurusan</label>
+                                    <input type="text" className="form-control form-control-sm text-left" id="exampleInputName1" value={'jurusan'} onChange={(e) => setJurusan(e.target.value)} required />
+                                </div>
+                            </div>
+                            <div className="col-md-6">
+                                <div>
+                                    <label htmlFor="exampleInputName2">Deskripsi</label>
+                                    <input type="text" className="form-control form-control-sm text-left text-left" id="exampleInputName2" value={'deskripsi'} onChange={(e) => setDeskripsi(e.target.value)} required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="row">
+                            <div className="col-md-4">
+                                <div>
+                                    <label htmlFor="tgl">Tanggal Lahir</label>
+                                    <input type="date" className="form-control form-control-sm text-left" id="tgl" value={'ttl'} onChange={(e) => setTtl(e.target.value)} required />
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div>
+                                    <label htmlFor="telp">Nomer Telepon</label>
+                                    <input type="tel" className="form-control form-control-sm" name="telp" id="telp" value={'no_telp'} onChange={(e) => setNoTelp(e.target.value)} required />
+                                </div>
+                            </div>
+                            <div className="col-md-4">
+                                <div>
+                                    <label htmlFor="telp">Nomer Telepon Orang Tua</label>
+                                    <input type="tel" className="form-control form-control-sm" name="telp" id="telp" value={'no_telp_ortu'} onChange={(e) => setNoTelpOrtu(e.target.value)} required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div>
+                                    <label htmlFor="alamat">Nama Orang Tua</label>
+                                    <input type="textarea" className="form-control form-control-sm text-left" value={'nama_ortu'} onChange={(e) => setNamaOrtu(e.target.value)} required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div>
+                                    <label htmlFor="alamat">Alamat</label>
+                                    <input type="textarea" className="form-control form-control-sm text-left" id="alamat" value={'alamat'} onChange={(e) => setAlamat(e.target.value)} required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <button className="btn btn-primary" onClick={() => handleSubmitSiswa()}>Ubah</button>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </Card>
+        </section>
     )
 }
