@@ -12,38 +12,39 @@ datasource db {
 
 model DataSiswa {
   nisn         Float  @id
-  nama         String
+  nama_siswa   String
   jurusan      String
   deskripsi    String
-  bidang       String
   alamat       String
   no_telp      Float
   ttl          String
   nama_ortu    String
   no_telp_ortu Float
+  userId       Int?
 }
 
 model DataGuru {
-  nip     Int    @id
-  nama    String
-  alamat  String
-  no_telp Int
+  nip       Float    @id
+  nama_guru String
+  alamat    String
+  no_telp   Float
+  userId    Int?
 }
 
 model User {
   id       Int    @id @default(autoincrement())
-  username String
+  username String @unique
   password String
   role     String
 }
 
 model Dudi {
-  id        Int        @id
-  nama      String
-  dudi      String
+  id        Int        @id @default(autoincrement())
+  nama_dudi String
   alamat    String
-  no_telp   Int
+  no_telp   Float
   siswalogs LogSiswa[]
+  userId    Int?
 }
 
 model LogSiswa {
