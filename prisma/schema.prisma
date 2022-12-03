@@ -48,7 +48,7 @@ model Dudi {
 }
 
 model LogSiswa {
-  id        Int      @id
+  id        Int      @id @default(autoincrement())
   nama      String
   kegiatan  String
   dudi      Dudi     @relation(fields: [dudiId], references: [id])
@@ -58,7 +58,7 @@ model LogSiswa {
 }
 
 model LogGuru {
-  id        Int      @id
+  id        Int      @id @default(autoincrement())
   nama      String
   kegiatan  String
   image     String?
