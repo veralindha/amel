@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { supabase } from "../../libs/supabase.lib"
 import Swal from "sweetalert2"
 import Card from "../utils/card"
 
 export default function TambahDataSiswaForm() {
+  const [dudi, setDudi] = useState([])
   const [nisn, setNisn] = useState('')
   const [nama, setNama] = useState('')
   const [jurusan, setJurusan] = useState('')
@@ -13,6 +14,7 @@ export default function TambahDataSiswaForm() {
   const [ttl, setTtl] = useState('')
   const [nama_ortu, setNamaOrtu] = useState('')
   const [no_telp_ortu, setNoTelpOrtu] = useState('')
+  const [selectedDudi, setSelectDudi] = useState('')
   const clearInput = () => {
     setNisn('')
     setNama('')
@@ -23,6 +25,12 @@ export default function TambahDataSiswaForm() {
     setTtl('')
     setNamaOrtu('')
     setNoTelpOrtu('')
+    setSelectDudi('')
+  }
+  const handlerGetDudi = async () => {
+    let {data, error} = await supabase.from('Dudi').select()
+    if (error) console.error(error)
+    setDudi(data)
   }
   const handleCreateUser = async () => {
     const userdata = {
@@ -46,7 +54,8 @@ export default function TambahDataSiswaForm() {
       ttl: ttl,
       nama_ortu: nama_ortu,
       no_telp_ortu: no_telp_ortu,
-      userId: userdata ? userdata[0].id : null
+      userId: userdata ? userdata[0].id : null,
+      DudiId: parseInt(selectedDudi)
     }
     let { data, error } = await supabase.from('DataSiswa').insert(idata).select()
     if (error) {
@@ -56,6 +65,10 @@ export default function TambahDataSiswaForm() {
       clearInput()
     }
   }
+
+  useEffect(() => {
+    handlerGetDudi()
+  }, [])
 
   return (
     <Card cardTitle="Siswa" cardIcon="fa-user">
@@ -78,15 +91,26 @@ export default function TambahDataSiswaForm() {
         </div>
         <div className="form-group">
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-4">
               <div>
                 <label htmlFor="exampleInputName1">Jurusan</label>
                 <input type="text" className="form-control form-control-sm text-left" id="exampleInputName1" value={jurusan} onChange={(e) => setJurusan(e.target.value)} required />
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-4">
               <div>
-                <label htmlFor="exampleInputName2">Deskripsi</label>
+                <label htmlFor="exampleInputName1">DUDI</label>
+                <select className="form-control form-control-sm" onChange={(e) => setSelectDudi(e.target.value)}>
+                  <option value="">Pilih...</option>
+                  {dudi.map((d, i) => (
+                    <option key={i} value={d.id}>{d.nama_dudi}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div>
+                <label htmlFor="exampleInputName2">Deskripsi Bidang</label>
                 <input type="text" className="form-control form-control-sm text-left text-left" id="exampleInputName2" value={deskripsi} onChange={(e) => setDeskripsi(e.target.value)} required />
               </div>
             </div>

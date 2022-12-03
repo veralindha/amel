@@ -6,7 +6,7 @@ export default function TableSiswa() {
   const [search, setSearch] = useState('')
   const searchedData = dataSiswa.filter((siswa) => siswa.nama_siswa.toLowerCase().includes(search.toLowerCase()))
   const fetchSiswa = async () => {
-    let{data, error} = await supabase.from('DataSiswa').select()
+    let{data, error} = await supabase.from('DataSiswa').select('*, Dudi(nama_dudi)')
     if (error) {
       console.error(error)
     } else {
@@ -43,7 +43,8 @@ export default function TableSiswa() {
                       <th>NISN</th>
                       <th>Nama</th>
                       <th>Jurusan</th>
-                      <th>Deskripsi</th>
+                      <th>DUDI</th>
+                      <th>Deskripsi Bidang</th>
                       <th>Alamat</th>
                       <th>Telpon</th>
                       <th>TTL</th>
@@ -57,6 +58,7 @@ export default function TableSiswa() {
                         <td>{siswa.nisn}</td>
                         <td>{siswa.nama_siswa}</td>
                         <td>{siswa.jurusan}</td>
+                        <td>{siswa.Dudi.nama_dudi}</td>
                         <td>{siswa.deskripsi}</td>
                         <td>{siswa.alamat}</td>
                         <td>{siswa.no_telp}</td>

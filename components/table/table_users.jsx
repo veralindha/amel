@@ -15,7 +15,7 @@ export default function TableUsers() {
   }
   useEffect(() => {
     fetchUser()
-  })
+  }, [])
   console.log(userdata)
   return (
     <div className="content">
