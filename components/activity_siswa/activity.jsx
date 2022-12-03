@@ -8,7 +8,7 @@ export default function Activity() {
     const [log, setLog] = useState([])
     const fetchLog = async () => {
         setLoading(true)
-        let { data, error } = await supabase.from('LogSiswa').select()
+        let { data, error } = await supabase.from('LogSiswa').select('*, Dudi (id, nama_dudi)')
         if (error) {
             console.error(error)
         } else {
@@ -25,7 +25,7 @@ export default function Activity() {
       }
     useEffect(() => {
         fetchLog()
-    })
+    }, [])
     return (
         <section className="content">
             <div className="container-fluid">
@@ -36,7 +36,7 @@ export default function Activity() {
                         {/* The time line */}
                         <div className="timeline">
                             {log.slice(0).reverse().map((logitem, i) => (
-                                <CardActivity nama={logitem.nama} kegiatan={logitem.kegiatan} timestamps={logitem.createdAt} image={downloadImage(logitem.image)} key={i} />
+                                <CardActivity nama={logitem.nama + ` - ${logitem.Dudi.nama_dudi}`} kegiatan={logitem.kegiatan} timestamps={logitem.createdAt} image={downloadImage(logitem.image)} key={i} />
                             ))}
                         </div>
                     </div>
