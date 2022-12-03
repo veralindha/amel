@@ -31,20 +31,29 @@ export default function EditActivity() {
         }
     }
     const handleCreateLog = async (e) => {
-        e.preventDefault()
-        const newLog = {
-            nama: 'guru',
-            kegiatan: kegiatan,
-            createdAt: new Date(Date.now()).toISOString(),
-            image: fileName
+        try {
+            e.preventDefault()
+            if (fileName == '') throw new Error('Anda harus memilih satu gambar untuk diunggah!')
+            const newLog = {
+                nama: 'guru',
+                kegiatan: kegiatan,
+                createdAt: new Date(Date.now()).toISOString(),
+                image: fileName
+            }
+            let { data, error } = await supabase.from('LogGuru').insert(newLog).select()
+            if (error) {
+                console.error(error)
+            } else {
+                Swal.fire('Success', 'Log berhasil ditambahkan!', 'info')
+                setFileName('')
+                setUploadMessage('Upload')
+                e.target.files = []
+                console.info(data)
+            }
+        } catch (error) {
+            Swal.fire('Error', 'Anda harus memilih satu gambar untuk diunggah!', 'error')
         }
-        let { data, error } = await supabase.from('LogGuru').insert(newLog).select()
-        if (error) {
-            console.error(error)
-        } else {
-            Swal.fire('Success', 'Log berhasil ditambahkan!', 'info')
-            console.info(data)
-        }
+
     }
     return (
         <Card cardTitle="Aktivitas Baru" cardIcon="fa-clock">
@@ -58,7 +67,7 @@ export default function EditActivity() {
                     <div className="input-group">
                         <div className="custom-file">
                             <input type="file" className="custom-file-input" accept="image/*" onChange={uploadImage} disabled={isUploading} />
-                            <label className="custom-file-label" htmlFor="exampleInputFile">Choose file</label>
+                            <label className="custom-file-label" htmlFor="exampleInputFile">{fileName == '' ? 'Choose file' : fileName}</label>
                         </div>
                         <div className="input-group-append">
                             <span className="input-group-text">{uploadMessage}</span>

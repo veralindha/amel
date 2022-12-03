@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Swal from "sweetalert2"
-import Card from "../../components/utils/card"
 import { supabase } from "../../libs/supabase.lib"
+import Card from "../utils/card"
 
 export default function EditActivity() {
     const [isUploading, setIsUploading] = useState(false)
@@ -31,34 +31,44 @@ export default function EditActivity() {
         }
     }
     const handleCreateLog = async (e) => {
-        e.preventDefault()
-        const newLog = {
-            nama: 'siswa',
-            kegiatan: kegiatan,
-            createdAt: new Date(Date.now()).toISOString(),
-            image: fileName
+        try {
+            e.preventDefault()
+            if (fileName == '') throw new Error('Anda harus memilih satu gambar untuk diunggah!')
+            const newLog = {
+                nama: 'siswa',
+                kegiatan: kegiatan,
+                dudiId: 3,
+                createdAt: new Date(Date.now()).toISOString(),
+                image: fileName
+            }
+            let { data, error } = await supabase.from('LogSiswa').insert(newLog).select()
+            if (error) {
+                console.error(error)
+            } else {
+                Swal.fire('Success', 'Log berhasil ditambahkan!', 'info')
+                setFileName('')
+                setUploadMessage('Upload')
+                e.target.files = []
+                console.info(data)
+            }
+        } catch (error) {
+            Swal.fire('Error', 'Anda harus memilih satu gambar untuk diunggah!', 'error')
         }
-        let { data, error } = await supabase.from('LogSiswa').insert(newLog).select()
-        if (error) {
-            console.error(error)
-        } else {
-            Swal.fire('Success', 'Log berhasil ditambahkan!', 'info')
-            console.info(data)
-        }
+
     }
     return (
         <Card cardTitle="Aktivitas Baru" cardIcon="fa-clock">
             <form onSubmit={handleCreateLog}>
                 <div className="form-group">
                     <label>Kegiatan</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter ..." value={kegiatan} onChange={(e) => setKegiatan(e.target.value)}></textarea>
+                    <textarea className="form-control" rows="3" placeholder="Enter ..." value={kegiatan} onChange={(e) => setKegiatan(e.target.value)} required></textarea>
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputFile">Pilih File</label>
                     <div className="input-group">
                         <div className="custom-file">
-                            <input type="file" className="custom-file-input" id="exampleInputFile" onChange={uploadImage} disabled={isUploading}/>
-                            <label className="custom-file-label" htmlFor="exampleInputFile">Choose file</label>
+                            <input type="file" className="custom-file-input" accept="image/*" onChange={uploadImage} disabled={isUploading} />
+                            <label className="custom-file-label" htmlFor="exampleInputFile">{fileName == '' ? 'Choose file' : fileName}</label>
                         </div>
                         <div className="input-group-append">
                             <span className="input-group-text">{uploadMessage}</span>
