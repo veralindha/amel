@@ -31,7 +31,7 @@ export default function ProfileDudi() {
                         </div>
                     </div>
                     <div className="row">
-                        <button className="btn btn-primary" onClick={() => handleSubmitDudi()}>Simpan</button>
+                        <button className="btn btn-primary" onClick={() => handleSubmitDudi()}>Update</button>
                     </div>
                 </div>
             </Card>

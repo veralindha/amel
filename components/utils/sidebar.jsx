@@ -17,7 +17,7 @@ export default function Sidebar({isActiveNavItem=0, activeUser=''}) {
             <Image src="/dist/img/user.png" className="img-circle elevation-2" alt="User Image" width={128} height={128} />
           </div>
           <div className="info">
-            <a href="#" className="d-block">{activeUser}</a>
+            <Link href={`/profile/${activeUser}`} className="d-block">{activeUser}</Link>
           </div>
         </div>
         {/* Sidebar Menu */}
