@@ -1,3 +1,5 @@
+import Card from "../utils/card"
+
 export default function ProfileGuru() {
     return (
         <section className="content">

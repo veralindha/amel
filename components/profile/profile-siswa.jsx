@@ -1,3 +1,5 @@
+import Card from "../utils/card"
+
 export default function ProfileSiswa() {
     return (
         <section className="content">
