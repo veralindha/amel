@@ -1,8 +1,10 @@
 import TableSiswa from "../../components/table/table_siswa";
 import ContentHeader from "../../components/utils/content-header";
 import Layout from "../../components/utils/layout";
+import useLoginStore from "../../store/store";
 
 export default function DataSiswa(){
+  const user = useLoginStore((state) => state.user)
   const breadcrumbs = [
     {
       isActive: false,
@@ -16,7 +18,7 @@ export default function DataSiswa(){
     },
   ]
   return (
-    <Layout title="Data Siswa - Monitoring PKL" activeNavBarItem={4} activeUser={'Admin'}>
+    <Layout title="Data Siswa - Monitoring PKL" activeNavBarItem={4} activeUser={user}>
       <ContentHeader title={'Data Siswa'} listBreadcrumb={breadcrumbs} />
       <TableSiswa />
     </Layout>

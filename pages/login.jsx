@@ -1,10 +1,33 @@
+import { useRouter } from "next/router"
 import { useState } from "react"
 import Swal from "sweetalert2"
 import {supabase} from "../libs/supabase.lib"
+import useLoginStore from "../store/store"
 
 export default function Login() {
+  const router = useRouter()
+  const setLogin = useLoginStore((state) => state.setLogin)
+  const setUser = useLoginStore((state) => state.setUser)
+  const setUserId = useLoginStore((state) => state.setUserId)
+  const setRole = useLoginStore((state) => state.setRole)
+  const setEmail = useLoginStore((state) => state.setEmail)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [role, setR] = useState('')
+  const handleGetUserData = async () => {
+    const {data, error} = await supabase.from('User').select().match({email: username})
+    if (error) {
+      return false
+    } else {
+      setLogin()
+      setUserId(data[0].id)
+      setUser(data[0].username)
+      setRole(data[0].role)
+      setEmail(data[0].email)
+      setR(data[0].role)
+      console.info(data)
+    }
+  }
   const handleSubmit = async (e) => {
     e.preventDefault()
     const {error} = await supabase.auth.signInWithPassword({
@@ -15,8 +38,25 @@ export default function Login() {
       Swal.fire('Error', 'Invalid username or password!', 'warning')
       console.error(error)
     } else {
-      location.replace('/admin')
       console.info('logged in')
+      if (handleGetUserData()) {
+        switch (role) {
+          case 'admin':
+            router.push('/admin')
+            break;
+          case 'guru':
+            router.push('/siswa')
+            break
+          case 'siswa':
+            router.push('/siswa/activity')
+            break
+          case 'dudi':
+            router.push('/siswa')
+        
+          default:
+            break;
+        }
+      }
     }
   }
   return (

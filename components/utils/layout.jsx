@@ -3,7 +3,7 @@ import Navbar from "./navbar";
 import Scripts from "./scripts";
 import Sidebar from "./sidebar";
 
-export default function Layout({ children, title = '', activeNavBarItem = 0, activeUser = '' }) {
+export default function Layout({ children, title = '', activeNavBarItem = 0, activeUser = '', role='' }) {
   return (
     <div className="hold-transition sidebar-mini layout-fixed">
       <div className="wrapper">
@@ -14,7 +14,7 @@ export default function Layout({ children, title = '', activeNavBarItem = 0, act
         </Head>
         <Navbar />
       </div>
-      <Sidebar isActiveNavItem={activeNavBarItem} activeUser={activeUser} />
+      <Sidebar isActiveNavItem={activeNavBarItem} activeUser={activeUser} role={role}/>
       <div className="content-wrapper">
         {children}
       </div>

@@ -1,7 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
+import useLoginStore from "../../store/store"
 
 export default function Sidebar({isActiveNavItem=0, activeUser=''}) {
+  const role = useLoginStore((state) => state.role)
   return (
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
       {/* Brand Logo */}
@@ -23,8 +25,8 @@ export default function Sidebar({isActiveNavItem=0, activeUser=''}) {
         {/* Sidebar Menu */}
         <nav className="mt-2">
           <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li className="nav-header">ADMIN</li>
-            <li className="nav-item">
+            <li className="nav-header" hidden={role == 'admin' ? false : true}>ADMIN</li>
+            <li className="nav-item" hidden={role == 'admin' ? false : true}>
               <Link href="/admin" className={`nav-link ${isActiveNavItem == 0 ? ' active':''}`}>
                 <i className="nav-icon fas fa-th" />
                 <p>
@@ -32,7 +34,7 @@ export default function Sidebar({isActiveNavItem=0, activeUser=''}) {
                 </p>
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item" hidden={role == 'admin' ? false : true}>
               <Link href="/admin/tambahdata" className={`nav-link ${isActiveNavItem == 1 ? ' active':''}`}>
                 <i className="nav-icon fas fa-th" />
                 <p>
@@ -40,8 +42,8 @@ export default function Sidebar({isActiveNavItem=0, activeUser=''}) {
                 </p>
               </Link>
             </li>
-            <li className="nav-header">GURU</li>
-            <li className="nav-item">
+            <li className="nav-header" hidden={role == 'guru' || role == 'admin' ? false:true}>GURU</li>
+            <li className="nav-item" hidden={role == 'admin' ? false:true}>
               <Link href="/guru" className={`nav-link ${isActiveNavItem == 2 ? ' active':''}`}>
                 <i className="nav-icon fas fa-th" />
                 <p>
@@ -49,7 +51,7 @@ export default function Sidebar({isActiveNavItem=0, activeUser=''}) {
                 </p>
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item" hidden={role == 'guru' || role == 'admin' ? false:true}>
               <Link href="/guru/activity" className={`nav-link ${isActiveNavItem == 3 ? ' active':''}`}>
                 <i className="nav-icon fas fa-th" />
                 <p>
@@ -57,8 +59,8 @@ export default function Sidebar({isActiveNavItem=0, activeUser=''}) {
                 </p>
               </Link>
             </li>
-            <li className="nav-header">SISWA</li>
-            <li className="nav-item">
+            <li className="nav-header" hidden={role == 'guru' || role == 'dudi' || role == 'admin' || role == 'siswa' ? false : true}>SISWA</li>
+            <li className="nav-item" hidden={role == 'guru' || role == 'dudi' || role == 'admin' ? false : true}>
               <Link href="/siswa" className={`nav-link ${isActiveNavItem == 4 ? ' active':''}`}>
                 <i className="nav-icon fas fa-th" />
                 <p>
@@ -66,7 +68,7 @@ export default function Sidebar({isActiveNavItem=0, activeUser=''}) {
                 </p>
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item" hidden={role == 'guru' || role == 'dudi' || role == 'admin' || role == 'siswa' ? false : true}>
               <Link href="/siswa/activity" className={`nav-link ${isActiveNavItem == 5 ? ' active':''}`}>
                 <i className="nav-icon fas fa-th" />
                 <p>
@@ -74,8 +76,8 @@ export default function Sidebar({isActiveNavItem=0, activeUser=''}) {
                 </p>
               </Link>
             </li>
-            <li className="nav-header">DUDI</li>
-            <li className="nav-item">
+            <li className="nav-header" hidden={role == 'admin' ? false : true}>DUDI</li>
+            <li className="nav-item" hidden={role == 'admin' ? false : true}>
               <Link href="/dudi" className={`nav-link ${isActiveNavItem == 6 ? ' active':''}`}>
                 <i className="nav-icon fas fa-th" />
                 <p>
