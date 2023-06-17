@@ -1,4 +1,4 @@
-import Activity from "../../components/activity_siswa/activity";
+import Activity from "../../components/siswa/activity";
 import ContentHeader from "../../components/utils/content-header";
 import Layout from "../../components/utils/layout";
 import useLoginStore from "../../store/store";
@@ -18,7 +18,7 @@ export default function ActivitySiswa(){
     },
   ]
   return (
-    <Layout title="Activity Siswa - Monitoring PKL" activeNavBarItem={5} activeUser={user}>
+    <Layout title="Activity Siswa - Monitoring PKL" activeNavBarItem={6} activeUser={user}>
       <ContentHeader title={'Aktivitas Siswa'} listBreadcrumb={breadcrumbs} />
       <Activity />
     </Layout>
